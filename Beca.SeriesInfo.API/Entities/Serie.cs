@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Beca.SeriesInfo.API.Entities
@@ -19,11 +20,16 @@ namespace Beca.SeriesInfo.API.Entities
         public ICollection<Capitulo> Capitulos { get; set; }
             = new List<Capitulo>();
 
+        public Serie(string titulo, string descripcion)
+        {
+            Titulo = titulo;
+            Descripcion = descripcion;
+        }
+
         public Serie(string titulo)
         {
             Titulo = titulo;
         }
-
 
 
 
